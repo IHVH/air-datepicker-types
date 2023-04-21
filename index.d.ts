@@ -55,7 +55,7 @@ export interface AirDatepickerOptions {
 
   onSelect?: (
     formattedDate: string,
-    date: Date,
+    date:  Date | Array<Date>,
     inst: AirDatepickerInstance
   ) => void;
   onChangeMonth?: (month: number, year: number) => void;
@@ -68,7 +68,7 @@ export interface AirDatepickerOptions {
   onRenderCell?: (date: Date, cellType: "day" | "month" | "year") => void;
 }
 
-export interface AirDatepickerEventObject extends JQuery.Event {
+export interface AirDatepickerEventObject extends JQuery {
   date: Date;
   format(format?: string): string;
 }
@@ -99,6 +99,7 @@ export interface AirDatepickerInstance {
   update(options: AirDatepickerOptions): AirDatepickerInstance;
   formatDate(format: string, date: Date): string;
   destroy(): void;
+  el: HTMLInputElement;
 }
 
 export interface AirDatepickerStatic {
